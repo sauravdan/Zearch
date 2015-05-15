@@ -122,7 +122,7 @@ class GoogleRemoteApp(RemoteAppMgr):
             oauth_refresh_token = (resp['refresh_token'], '')
         else:
             oauth_refresh_token = 0'''
-        userinfo = self.remote_app.get('userinfo').data
+        userinfo = self.remote_app.get('userinfo')
         return userinfo
         #oauth_provider = "google"
         '''oauth_name = userinfo['name']
@@ -285,15 +285,15 @@ def oauth_authorize(provider):
 @app.route('/callback/<provider>')
 def oauth_callback(provider):
     remote_app = RemoteAppMgr.get_remote_app(provider)
-    #access_token = remote_app.authorized()
-    name, email, social_id = remote_app.authorized()
-    user = User.query.filter_by(social_id=social_id).first()
+    me = remote_app.authorized()
+    #name, email, social_id = remote_app.authorized()
+    ''''user = User.query.filter_by(social_id=social_id).first()
     if not user:
         user = User(social_id=social_id, name=name, email=email, refresh_token=refresh_token)
         db.session.add(user)
         db.session.commit()
-    login_user(user, True)
-    return redirect(url_for('index'))
+    login_user(user, True)'''
+    return jsonify({"data": me.data})
 
 def oauth_login_user(oauth_provider, oauth_id, email):
     '''
