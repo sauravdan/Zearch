@@ -4,7 +4,7 @@ after cloning run the following command
 ```bash
 sudo pip install -r requirements.txt
 ```
-#Technologies
+##Technologies
 + [Python](https://www.python.org/)
 + [Flask](http://flask.pocoo.org/)
 + [Flask-OAuthlib](https://flask-oauthlib.readthedocs.org/en/latest/)
