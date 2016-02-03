@@ -8,4 +8,5 @@ sudo pip install -r requirements.txt
 + [Python](https://www.python.org/)
 + [Flask](http://flask.pocoo.org/)
 + [Flask-OAuthlib](https://flask-oauthlib.readthedocs.org/en/latest/)
++ [SQLite](https://www.sqlite.org/)
 + [SQLAlchemy](http://www.sqlalchemy.org/)
